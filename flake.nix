@@ -1,7 +1,7 @@
 {
   description = "My GHC Flake";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-22.11";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
   };
   outputs = { self, nixpkgs }: {
     devShells.x86_64-linux.default =
@@ -18,8 +18,8 @@
       in pkgs.mkShell {
         buildInputs = [
           (pkgs.ghc.withPackages (ps: with ps; [ implicit ]))
-          pkgs.meshlab
-          pkgs.xdotool
+          pkgs.cabal-install
+          pkgs.fstl
           pkgs.inotify-tools
           vscodium-with-extensions
           pkgs.haskell-language-server
